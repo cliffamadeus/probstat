@@ -4,37 +4,26 @@ import matplotlib.pyplot as plt
 from scipy import stats
 from google.colab import files
 
- 
-# Upload BEFORE Enhancement Dataset
-print("Upload BEFORE Enhancement CSV")
-uploaded_before = files.upload()
+# Upload Dataset
+print("Upload CSV file")
+uploaded = files.upload()
 
-before_file = next(iter(uploaded_before))
-before = pd.read_csv(before_file)
+filename = next(iter(uploaded))
+df = pd.read_csv(filename)
 
-print("\nBEFORE ENHANCEMENT DATASET")
-print(before)
+print("\nDATASET")
+print(df)
 
- 
-# Upload AFTER Enhancement Dataset
-print("\nUpload AFTER Enhancement CSV")
-uploaded_after = files.upload()
+# Validate Required Columns
 
-after_file = next(iter(uploaded_after))
-after = pd.read_csv(after_file)
+required_columns = ["user", "before", "after"]
 
-print("\nAFTER ENHANCEMENT DATASET")
-print(after)
+for col in required_columns:
+    if col not in df.columns:
+        raise ValueError(f"Missing required column: {col}")
 
- 
-# Validate Dataset Length
-if len(before) != len(after):
-    raise ValueError(
-        "Both datasets must contain the same number of participants for a Paired T-Test."
-    )
-
- 
 # Descriptive Statistics Function
+
 def descriptive_stats(series, label):
 
     mean = series.mean()
@@ -64,48 +53,39 @@ def descriptive_stats(series, label):
 
     return mean, std
 
+# Descriptive Statistics
+
 before_mean, before_std = descriptive_stats(
-    before["completion_time"],
+    df["before"],
     "BEFORE ENHANCEMENT ANALYSIS"
 )
 
 after_mean, after_std = descriptive_stats(
-    after["completion_time"],
+    df["after"],
     "AFTER ENHANCEMENT ANALYSIS"
 )
 
- 
-# Correlation Analysis
- 
+# Normality Test
 
-r, p_corr = stats.pearsonr(
-    before["completion_time"],
-    after["completion_time"]
-)
+difference = df["before"] - df["after"]
 
-print("\nCORRELATION ANALYSIS")
+shapiro_stat, shapiro_p = stats.shapiro(difference)
+
+print("\nNORMALITY TEST (Shapiro-Wilk)")
 print("-" * 40)
-print(f"Pearson Correlation (r): {r:.4f}")
-print(f"p-value: {p_corr:.4f}")
+print(f"Statistic: {shapiro_stat:.4f}")
+print(f"P-value: {shapiro_p:.4f}")
 
-if abs(r) >= 0.90:
-    strength = "Very Strong"
-elif abs(r) >= 0.70:
-    strength = "Strong"
-elif abs(r) >= 0.50:
-    strength = "Moderate"
-elif abs(r) >= 0.30:
-    strength = "Weak"
+if shapiro_p > 0.05:
+    print("Result: Differences are approximately normally distributed.")
 else:
-    strength = "Very Weak"
+    print("Result: Differences may not be normally distributed.")
 
-print(f"Relationship Strength: {strength}")
-
- 
 # Paired T-Test
+
 t_stat, p_value = stats.ttest_rel(
-    before["completion_time"],
-    after["completion_time"]
+    df["before"],
+    df["after"]
 )
 
 print("\nPAIRED T-TEST ANALYSIS")
@@ -122,12 +102,7 @@ else:
     print("Decision: Fail to Reject H₀")
     print("Interpretation: No significant improvement detected.")
 
- 
-# Cohen's d Effect Size
-difference = (
-    before["completion_time"]
-    - after["completion_time"]
-)
+# Effect Size (Cohen's d)
 
 cohens_d = difference.mean() / difference.std()
 
@@ -146,8 +121,8 @@ else:
 
 print(f"Effect Size Interpretation: {effect}")
 
- 
 # Improvement Percentage
+
 improvement = (
     (before_mean - after_mean)
     / before_mean
@@ -157,15 +132,13 @@ print("\nIMPROVEMENT ANALYSIS")
 print("-" * 40)
 print(f"Average Improvement: {improvement:.2f}%")
 
- 
 # Charts
+
 # Boxplot
+
 plt.figure(figsize=(8,5))
 plt.boxplot(
-    [
-        before["completion_time"],
-        after["completion_time"]
-    ],
+    [df["before"], df["after"]],
     labels=["Before", "After"]
 )
 plt.title("Task Completion Time Comparison")
@@ -173,7 +146,7 @@ plt.ylabel("Time (Seconds)")
 plt.show()
 
 # Mean Comparison
-print("\n")
+
 plt.figure(figsize=(6,5))
 plt.bar(
     ["Before", "After"],
@@ -183,32 +156,26 @@ plt.title("Average Completion Time")
 plt.ylabel("Seconds")
 plt.show()
 
-# Scatter Plot
-print("\n")
-plt.figure(figsize=(6,5))
-plt.scatter(
-    before["completion_time"],
-    after["completion_time"]
-)
-print("\n")
-plt.xlabel("Before Enhancement")
-print("\n")
-plt.ylabel("After Enhancement")
-print("\n")
-plt.title("Correlation Analysis")
-print("\n")
+# Participant Comparison
+
+plt.figure(figsize=(10,5))
+plt.plot(df["user"], df["before"], marker='o', label="Before")
+plt.plot(df["user"], df["after"], marker='o', label="After")
+plt.title("Participant Completion Times")
+plt.xlabel("Participant")
+plt.ylabel("Time (Seconds)")
+plt.legend()
 plt.grid(True)
 plt.show()
 
- 
 # Final Summary
 print("\nFINAL INTERPRETATION")
 print("-" * 40)
 
 print(
-    f"The average completion time changed from "
-    f"{before_mean:.2f} sec to "
-    f"{after_mean:.2f} sec."
+    f"The average completion time decreased from "
+    f"{before_mean:.2f} seconds to "
+    f"{after_mean:.2f} seconds."
 )
 
 print(
