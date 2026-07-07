@@ -1,0 +1,101 @@
+id,operation_type,status_code,status_group,message,created_at
+1,CREATE,200,2xx Success,Operation successful,2026-01-01 00:00:00
+2,READ,201,2xx Success,Operation successful,2026-01-01 01:00:00
+3,UPDATE,202,2xx Success,Operation successful,2026-01-01 02:00:00
+4,DELETE,203,2xx Success,Operation successful,2026-01-01 03:00:00
+5,CREATE,204,2xx Success,Operation successful,2026-01-01 04:00:00
+6,READ,200,2xx Success,Operation successful,2026-01-01 05:00:00
+7,UPDATE,201,2xx Success,Operation successful,2026-01-01 06:00:00
+8,DELETE,408,4xx Client Error,Client error occurred,2026-01-01 07:00:00
+9,CREATE,409,4xx Client Error,Client error occurred,2026-01-01 08:00:00
+10,READ,500,5xx Server Error,Server error occurred,2026-01-01 09:00:00
+11,UPDATE,200,2xx Success,Operation successful,2026-01-01 10:00:00
+12,DELETE,201,2xx Success,Operation successful,2026-01-01 11:00:00
+13,CREATE,202,2xx Success,Operation successful,2026-01-01 12:00:00
+14,READ,203,2xx Success,Operation successful,2026-01-01 13:00:00
+15,UPDATE,204,2xx Success,Operation successful,2026-01-01 14:00:00
+16,DELETE,200,2xx Success,Operation successful,2026-01-01 15:00:00
+17,CREATE,201,2xx Success,Operation successful,2026-01-01 16:00:00
+18,READ,406,4xx Client Error,Client error occurred,2026-01-01 17:00:00
+19,UPDATE,407,4xx Client Error,Client error occurred,2026-01-01 18:00:00
+20,DELETE,502,5xx Server Error,Server error occurred,2026-01-01 19:00:00
+21,CREATE,200,2xx Success,Operation successful,2026-01-01 20:00:00
+22,READ,201,2xx Success,Operation successful,2026-01-01 21:00:00
+23,UPDATE,202,2xx Success,Operation successful,2026-01-01 22:00:00
+24,DELETE,203,2xx Success,Operation successful,2026-01-01 23:00:00
+25,CREATE,204,2xx Success,Operation successful,2026-01-02 00:00:00
+26,READ,200,2xx Success,Operation successful,2026-01-02 01:00:00
+27,UPDATE,201,2xx Success,Operation successful,2026-01-02 02:00:00
+28,DELETE,404,4xx Client Error,Client error occurred,2026-01-02 03:00:00
+29,CREATE,405,4xx Client Error,Client error occurred,2026-01-02 04:00:00
+30,READ,503,5xx Server Error,Server error occurred,2026-01-02 05:00:00
+31,UPDATE,200,2xx Success,Operation successful,2026-01-02 06:00:00
+32,DELETE,201,2xx Success,Operation successful,2026-01-02 07:00:00
+33,CREATE,202,2xx Success,Operation successful,2026-01-02 08:00:00
+34,READ,203,2xx Success,Operation successful,2026-01-02 09:00:00
+35,UPDATE,204,2xx Success,Operation successful,2026-01-02 10:00:00
+36,DELETE,200,2xx Success,Operation successful,2026-01-02 11:00:00
+37,CREATE,201,2xx Success,Operation successful,2026-01-02 12:00:00
+38,READ,401,4xx Client Error,Client error occurred,2026-01-02 13:00:00
+39,UPDATE,402,4xx Client Error,Client error occurred,2026-01-02 14:00:00
+40,DELETE,500,5xx Server Error,Server error occurred,2026-01-02 15:00:00
+41,CREATE,200,2xx Success,Operation successful,2026-01-02 16:00:00
+42,READ,201,2xx Success,Operation successful,2026-01-02 17:00:00
+43,UPDATE,202,2xx Success,Operation successful,2026-01-02 18:00:00
+44,DELETE,203,2xx Success,Operation successful,2026-01-02 19:00:00
+45,CREATE,204,2xx Success,Operation successful,2026-01-02 20:00:00
+46,READ,200,2xx Success,Operation successful,2026-01-02 21:00:00
+47,UPDATE,201,2xx Success,Operation successful,2026-01-02 22:00:00
+48,DELETE,403,4xx Client Error,Client error occurred,2026-01-02 23:00:00
+49,CREATE,404,4xx Client Error,Client error occurred,2026-01-03 00:00:00
+50,READ,501,5xx Server Error,Server error occurred,2026-01-03 01:00:00
+51,UPDATE,200,2xx Success,Operation successful,2026-01-03 02:00:00
+52,DELETE,201,2xx Success,Operation successful,2026-01-03 03:00:00
+53,CREATE,202,2xx Success,Operation successful,2026-01-03 04:00:00
+54,READ,203,2xx Success,Operation successful,2026-01-03 05:00:00
+55,UPDATE,204,2xx Success,Operation successful,2026-01-03 06:00:00
+56,DELETE,200,2xx Success,Operation successful,2026-01-03 07:00:00
+57,CREATE,201,2xx Success,Operation successful,2026-01-03 08:00:00
+58,READ,400,4xx Client Error,Client error occurred,2026-01-03 09:00:00
+59,UPDATE,401,4xx Client Error,Client error occurred,2026-01-03 10:00:00
+60,DELETE,502,5xx Server Error,Server error occurred,2026-01-03 11:00:00
+61,CREATE,200,2xx Success,Operation successful,2026-01-03 12:00:00
+62,READ,201,2xx Success,Operation successful,2026-01-03 13:00:00
+63,UPDATE,202,2xx Success,Operation successful,2026-01-03 14:00:00
+64,DELETE,203,2xx Success,Operation successful,2026-01-03 15:00:00
+65,CREATE,204,2xx Success,Operation successful,2026-01-03 16:00:00
+66,READ,200,2xx Success,Operation successful,2026-01-03 17:00:00
+67,UPDATE,201,2xx Success,Operation successful,2026-01-03 18:00:00
+68,DELETE,402,4xx Client Error,Client error occurred,2026-01-03 19:00:00
+69,CREATE,403,4xx Client Error,Client error occurred,2026-01-03 20:00:00
+70,READ,503,5xx Server Error,Server error occurred,2026-01-03 21:00:00
+71,UPDATE,200,2xx Success,Operation successful,2026-01-03 22:00:00
+72,DELETE,201,2xx Success,Operation successful,2026-01-03 23:00:00
+73,CREATE,202,2xx Success,Operation successful,2026-01-04 00:00:00
+74,READ,203,2xx Success,Operation successful,2026-01-04 01:00:00
+75,UPDATE,204,2xx Success,Operation successful,2026-01-04 02:00:00
+76,DELETE,200,2xx Success,Operation successful,2026-01-04 03:00:00
+77,CREATE,201,2xx Success,Operation successful,2026-01-04 04:00:00
+78,READ,404,4xx Client Error,Client error occurred,2026-01-04 05:00:00
+79,UPDATE,405,4xx Client Error,Client error occurred,2026-01-04 06:00:00
+80,DELETE,500,5xx Server Error,Server error occurred,2026-01-04 07:00:00
+81,CREATE,200,2xx Success,Operation successful,2026-01-04 08:00:00
+82,READ,201,2xx Success,Operation successful,2026-01-04 09:00:00
+83,UPDATE,202,2xx Success,Operation successful,2026-01-04 10:00:00
+84,DELETE,203,2xx Success,Operation successful,2026-01-04 11:00:00
+85,CREATE,204,2xx Success,Operation successful,2026-01-04 12:00:00
+86,READ,200,2xx Success,Operation successful,2026-01-04 13:00:00
+87,UPDATE,201,2xx Success,Operation successful,2026-01-04 14:00:00
+88,DELETE,401,4xx Client Error,Client error occurred,2026-01-04 15:00:00
+89,CREATE,402,4xx Client Error,Client error occurred,2026-01-04 16:00:00
+90,READ,502,5xx Server Error,Server error occurred,2026-01-04 17:00:00
+91,UPDATE,200,2xx Success,Operation successful,2026-01-04 18:00:00
+92,DELETE,201,2xx Success,Operation successful,2026-01-04 19:00:00
+93,CREATE,202,2xx Success,Operation successful,2026-01-04 20:00:00
+94,READ,203,2xx Success,Operation successful,2026-01-04 21:00:00
+95,UPDATE,204,2xx Success,Operation successful,2026-01-04 22:00:00
+96,DELETE,200,2xx Success,Operation successful,2026-01-04 23:00:00
+97,CREATE,201,2xx Success,Operation successful,2026-01-05 00:00:00
+98,READ,400,4xx Client Error,Client error occurred,2026-01-05 01:00:00
+99,UPDATE,401,4xx Client Error,Client error occurred,2026-01-05 02:00:00
+100,DELETE,503,5xx Server Error,Server error occurred,2026-01-05 03:00:00
